@@ -1,6 +1,6 @@
 NAME	= fractal
 VPATH 	= src
-SRCS	= utils.c init.c main.c mandelbrot.c
+SRCS	= utils.c events.c init.c main.c mandelbrot.c
 ODIR	= ./objs/
 INCLUDE	= ./include
 CC		= cc

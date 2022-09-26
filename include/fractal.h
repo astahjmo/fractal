@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/09/26 15:37:34 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:39:50 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define FRACTAL_H
 
 #include <X11/keysym.h>
+#include <X11/X.h>
 #include <mlx.h>
 #include <stdlib.h>
 #include <math.h>
@@ -68,9 +69,26 @@ typedef struct s_mandel
 
 } t_mandel;
 
+typedef struct s_julia
+{
+	double	x;
+	double	y;
+	double	depht;
+	double	re_min;
+	double	re_max;
+	double	im_min;
+	double	im_max;
+
+} t_julia;
+
 int	program_init(int width, int height);
 int	encoder_argb(int r, int g, int b);
 int	render_mandelbrot(t_image *img);
 void	img_pix_put(t_image *img, int x, int y, int color);
 int start_mandel(t_image *img, int win_wid, int win_hei);
+int	handle_keyrelease(int keysym, void *data);
+int	handle_keypress(int keysym, t_data *data);
+int	render(t_data *data);
+int	handle_no_event(void *data);
+int	handle_mouse(t_data *data);
 #endif
