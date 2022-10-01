@@ -6,26 +6,11 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 14:11:41 by astaroth          #+#    #+#             */
-/*   Updated: 2022/09/26 16:23:07 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:28:14 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-
-static t_mandel	init_mandelbrot()
-{
-	t_mandel set;
-
-	set.re_min = -2;
-	set.re_max = 1.2;
-	set.im_min = -1.7;
-	set.im_max = 1.7;
-	set.x = 1;
-	set.y = 1;
-	set.depht = 1;
-	return (set);
-}
-
 
 static t_color get_color(int n, t_color color)
 {
@@ -38,6 +23,7 @@ static t_color get_color(int n, t_color color)
 	color.b =  (int)(8.5*(1-t)*(1-t)*(1-t)*t*255);
 	return (color);
 }
+
 int plot_mandel(int loopx, int loopy, double re, double im, t_image *img)
 {
 	int n;
@@ -73,9 +59,7 @@ int start_mandel(t_image *img, int win_wid, int win_hei)
 	int y;
 	double re;
 	double im;
-	t_mandel set;
 
-	set = init_mandelbrot();
 	x = 0;
 	y = 0;
 	while (y < win_hei)
