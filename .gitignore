@@ -1,4 +1,7 @@
 ./objs/
+./minilibx-linux/
+*.a
 ./compile_commands.json
+./cache/**
 ./fractal
 ./lib/
