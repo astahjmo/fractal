@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:55:14 by astaroth          #+#    #+#             */
-/*   Updated: 2022/09/26 17:43:38 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:56:52 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,13 @@ int	handle_keyrelease(int keysym, void *data)
 }
 int	render(t_data *data)
 {
-
-	start_mandel(&data->img, WINDOW_WIDTH,WINDOW_HEIGHT);
-	mlx_put_image_to_window(data->display, data->windows, data->img.mlx_image, 0, 0);
+	if (!data->fractal->img->addr)
+		printf("Amem");
 	return (0);
 }
-
 
 int	handle_no_event(void *data)
 {
 	printf("%p\n",data);
-	/* This function needs to exist, but it is useless for the moment */
 	return (0);
 }

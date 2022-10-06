@@ -2,60 +2,6 @@
   {
     "arguments": [
       "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-I./include",
-      "-I/usr/include",
-      "-c",
-      "-o",
-      "objs/utils.o",
-      "src/utils.c"
-    ],
-    "directory": "/home/astaroth/Documents/fractol",
-    "file": "/home/astaroth/Documents/fractol/src/utils.c",
-    "output": "/home/astaroth/Documents/fractol/objs/utils.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-I./include",
-      "-I/usr/include",
-      "-c",
-      "-o",
-      "objs/init.o",
-      "src/init.c"
-    ],
-    "directory": "/home/astaroth/Documents/fractol",
-    "file": "/home/astaroth/Documents/fractol/src/init.c",
-    "output": "/home/astaroth/Documents/fractol/objs/init.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-I./include",
-      "-I/usr/include",
-      "-c",
-      "-o",
-      "objs/main.o",
-      "src/main.c"
-    ],
-    "directory": "/home/astaroth/Documents/fractol",
-    "file": "/home/astaroth/Documents/fractol/src/main.c",
-    "output": "/home/astaroth/Documents/fractol/objs/main.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
       "-I./include",
       "-I/usr/include",
       "-c",

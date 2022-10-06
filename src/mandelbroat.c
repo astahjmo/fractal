@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   mandelbroat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 14:11:41 by astaroth          #+#    #+#             */
-/*   Updated: 2022/09/26 16:44:30 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/04 14:50:45 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-
-static t_julia	init_julia()
-{
-	t_julia set;
-
-	set.re_min = -2;
-	set.re_max = 1.2;
-	set.im_min = -1.7;
-	set.im_max = 1.7;
-	set.x = 1;
-	set.y = 1;
-	set.depht = 1;
-	return (set);
-}
-
 
 static t_color get_color(int n, t_color color)
 {
@@ -38,7 +23,8 @@ static t_color get_color(int n, t_color color)
 	color.b =  (int)(8.5*(1-t)*(1-t)*(1-t)*t*255);
 	return (color);
 }
-int plot_julia(int loopx, int loopy, double re, double im, t_image *img)
+
+int plot_mandel(int loopx, int loopy, double re, double im, t_image *img)
 {
 	int n;
 	double z;
@@ -52,8 +38,8 @@ int plot_julia(int loopx, int loopy, double re, double im, t_image *img)
 	while (n < 180)
 	{
 		temp = z;
-		z = (pow(z, 2) - pow(c, 2));
-		c = (2 * temp * c);
+		z = (pow(z, 2) - pow(c, 2) + re);
+		c = (2 * temp * c) + im;
 		if (pow(z, 2) + pow(c,2) > 2)
 		{
 			color = get_color(n, color);
@@ -67,24 +53,20 @@ int plot_julia(int loopx, int loopy, double re, double im, t_image *img)
 	return (0);
 }
 
-int start_julia(t_image *img, int win_wid, int win_hei)
+int start_mandel(t_fractal *fractal)
 {
-	int x;
-	int y;
 	double re;
 	double im;
-	t_julia set;
 
-	set = init_julia();
-	x = 0;
-	y = 0;
-	while (y < win_hei)
+	fractal->x = 0;
+	fractal->y = 0;
+	while (fractal->y < win_hei)
 	{
-		while (x < win_wid)
+		while (fractal->x < win_wid)
 		{
-			re = set.re_min + ((x * (set.re_max - set.re_min )) / 800);
-			im = set.im_max - ((y * (set.im_max - set.im_min )) / 600);
-			plot_julia(x,y,re,im,img);
+			re = set.re_min + ((fractal->x * (set.re_max - set.re_min )) / 800);
+			im = set.im_max - ((fractal->y * (set.im_max - set.im_min )) / 600);
+			plot_mandel(x,y,re,im,img);
 			x++;
 		}
 		x= 0;
