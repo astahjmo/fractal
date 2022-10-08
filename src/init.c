@@ -6,13 +6,12 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:29:44 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/04 16:09:41 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/07 00:09:53 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractal.h"
+#include "../include/fractal.h"
 #include <mlx.h>
-#include <stdlib.h>
 
 int   program_init(int width, int height,enum e_set set)
 {
@@ -35,13 +34,7 @@ int   program_init(int width, int height,enum e_set set)
 			&client.fractal->img->line_len,
 			&client.fractal->img->endian);
 
-	mlx_loop_hook(client.display, &render, &client);
-	mlx_destroy_image(client.display, client.fractal->img->mlx_image);
-	mlx_destroy_window(client.display, client.windows);
-	mlx_destroy_display(client.display);
-	free(client.fractal->img);
-	free(client.fractal->cam);
-	free(client.fractal);
-	free(client.display);
+	mlx_loop(client.display);
+
 	return (0);
 }

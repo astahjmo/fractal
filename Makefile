@@ -13,9 +13,9 @@ SOURCES	:= ft_atoi.c ft_calloc.c ft_bzero.c ft_isalnum.c \
 					ft_putendl_fd.c ft_putnbr_fd.c
 SOURCES += utils.c events.c init.c main.c parse.c
 BUILDDIR := ./objs/
-INCLUDE := ./include
+INCLUDE := /include
 CC := cc
-CFLAGS = 
+CFLAGS =
 OBJS := $(addprefix $(BUILDDIR), $(SOURCES:.c=.o))
 
 ifdef DEBUG
@@ -25,11 +25,10 @@ endif
 all:	$(TARGET)
 
 $(TARGET): $(OBJS) $(BUILDDIR)
-	$(CC) $(OBJS) $(CFLAGS) $(lib) -lmlx_Linux -Imlx_linux -lXext -lX11 -lm -lz -O3 -o $(TARGET)
-
+	$(CC) $(OBJS) -I$(INCLUDE) libftprintf.a -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -lz -o $(TARGET)
 $(BUILDDIR)%.o: %.c
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
-	$(CC) $(CFLAGS) -I$(INCLUDE) -I/usr/include -c $< -o $@
+	$(CC) $(CFLAGS) -I./include -c $< -o $@
 
 clean:
 	rm -rf $(BUILDDIR)
