@@ -4,4 +4,5 @@
 ./compile_commands.json
 ./cache/**
 ./fractal
+./mlx_linux/
 ./lib/
