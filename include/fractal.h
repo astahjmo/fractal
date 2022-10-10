@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/10 15:44:47 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:21:00 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ typedef struct s_image
 typedef struct s_cam
 {
 	int depht;
-	double re_min;
-	double re_max;
-	double im_min;
-	double im_max;
+	double re;
+	double im;
 } t_cam;
 
 typedef struct s_fractal
