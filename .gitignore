@@ -2,7 +2,6 @@
 ./compile_commands.json
 ./cache/**
 ./fractal
-./mlx_linux/
 ./lib/
-./objs/
-./minilibx-linux
+objs/
+minilibx-linux/

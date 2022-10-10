@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/04 15:40:16 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/10 15:44:47 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <math.h>
 #include <stdio.h>
 #include "./libft.h"
+#include <stdarg.h>
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 #define MLX_ERROR 1
