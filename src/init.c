@@ -6,43 +6,50 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:29:44 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/10 16:06:40 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/13 19:24:55 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractal.h"
 #include <mlx.h>
 
-static t_fractal	*init_fractal(enum e_set set)
+static t_fractal	*init_fractal(enum e_set set, int width, int height)
 {
 	t_fractal	*fractal;
 
 	fractal = (t_fractal *)malloc(sizeof(t_fractal));
 	fractal->img = (t_image *)malloc(sizeof(t_image));
-	fractal->cam = (t_cam *)malloc(sizeof(t_cam));
 	fractal->set = set;
+	fractal->img->width = width;
+	fractal->img->height = height;
+	fractal->scale = (width / 2. + height / 2.) / 4;
+	fractal->x = height / 2. / fractal->scale * -1;
+	fractal->y = width / 2. / fractal->scale * -1;
 	return (fractal);
 }
 
 int	program_init(int width, int height, enum e_set set)
 {
-	t_data	client;
+	t_data	*client;
 
 	if (!width || !height)
 	{
 		width = WINDOW_WIDTH;
 		height = WINDOW_HEIGHT;
 	}
-	client.fractal = init_fractal(set);
-	client.display = mlx_init();
-	client.windows = mlx_new_window(client.display, width, height, "Fractal");
-	client.fractal->img->mlx_image = mlx_new_image(client.display,
+	client = malloc(sizeof(t_data));
+	client->fractal = init_fractal(set, width, height);
+	client->display = mlx_init();
+	client->windows = mlx_new_window(client->display, width, height, "Fractal");
+	client->fractal->img->mlx_image = mlx_new_image(client->display,
 			width, height);
-	client.fractal->img->addr = mlx_get_data_addr(
-			client.fractal->img->mlx_image,
-			&client.fractal->img->bpp,
-			&client.fractal->img->line_len,
-			&client.fractal->img->endian);
-	mlx_loop(client.display);
+	client->fractal->img->addr = mlx_get_data_addr(
+			client->fractal->img->mlx_image,
+			&client->fractal->img->bpp,
+			&client->fractal->img->line_len,
+			&client->fractal->img->endian);
+	start_mandel(client);
+	mlx_expose_hook(client->windows, expose_handler, client);
+	mlx_loop(client->display);
 	return (0);
 }

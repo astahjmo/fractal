@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:39:12 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/10 15:36:07 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/13 19:08:31 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	main(int argc, char *argv[])
 {
 	if (argc == 2)
-		parserr(argv[1]);
+		parserr(argv[1], WINDOW_WIDTH, WINDOW_HEIGHT);
 	else if (argc == 4)
-		parserr(argv[1], argv[2], argv[3]);
+		parserr(argv[1], ft_atoi(argv[2]), ft_atoi(argv[3]));
 	else
 		ft_printf("Wrong usage");
 }

@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/10 16:21:00 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/13 19:22:46 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,61 +14,58 @@
 
 # define FRACTAL_H
 
-#include <X11/keysym.h>
-#include <X11/X.h>
-#include <mlx.h>
-#include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
-#include "./libft.h"
-#include <stdarg.h>
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
-#define MLX_ERROR 1
+# include <X11/keysym.h>
+# include <X11/X.h>
+# include <mlx.h>
+# include <stdlib.h>
+# include <math.h>
+# include <stdio.h>
+# include "./libft.h"
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 600
+# define MLX_ERROR 1
 
-enum e_set{MANDELBROT, JULIA};
+enum e_set{
+	MANDELBROT,
+	JULIA
+};
 
 typedef struct s_image
 {
-  void *mlx_image;
-  char *addr;
-  int bpp;
-  int line_len;
-  int endian;
-  int width;
-  int height;
-} t_image;
-
-typedef struct s_cam
-{
-	int depht;
-	double re;
-	double im;
-} t_cam;
+	void	*mlx_image;
+	void	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+	int		width;
+	int		height;
+}			t_image;
 
 typedef struct s_fractal
 {
-	enum e_set set;
-	double	x;
-	double	y;
-	t_cam *cam;
-	t_image *img;
+	enum e_set	set;
+	double		x;
+	double		y;
+	double		re;
+	double		im;
+	double		scale;
+	t_image		*img;
 
-} t_fractal;
+}				t_fractal;
 
 typedef struct s_data
 {
-  void *display;
-  void *windows;
-  t_fractal *fractal;
-} t_data;
+	void		*display;
+	void		*windows;
+	t_fractal	*fractal;
+}				t_data;
 
 typedef struct s_color
 {
-	int r;
-	int g;
-	int b;
-} t_color;
+	int	r;
+	int	g;
+	int	b;
+}		t_color;
 
 int		ft_isascii(int n);
 int		ft_toupper(int c);
@@ -87,16 +84,17 @@ int		fmt_to_char(char s);
 int		fmt_to_string(char *s);
 int		fmt_to_hex(unsigned int nb, int is_upper);
 int		fmt_to_pointer(void *pointer);
-int	encoder_argb(int r, int g, int b);
-int	render_mandelbrot(t_image *img);
+int		encoder_argb(int r, int g, int b);
+int		render_mandelbrot(t_image *img);
 void	img_pix_put(t_image *img, int x, int y, int color);
-int start_mandel(t_image *img, int win_wid, int win_hei);
-int	handle_keyrelease(int keysym, void *data);
-int	handle_keypress(int keysym, t_data *data);
-int	render(t_data *data);
-int	handle_no_event(void *data);
-int	handle_mouse(t_data *data);
-int	parserr(char *str, ...);
-int	program_init(int width, int height, enum e_set set);
-
+int		start_mandel(t_data *data);
+int		handle_keyrelease(int keysym, void *data);
+int		handle_keypress(int keysym, t_data *data);
+int		render(t_data *data);
+int		handle_no_event(void *data);
+int		handle_mouse(t_data *data);
+int		parserr(char *str, int win, int hei);
+int		program_init(int width, int height, enum e_set set);
+void	draw_fractal(t_data *client);
+int		expose_handler(t_data *data);
 #endif

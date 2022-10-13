@@ -1,64 +1,78 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mandelbroat.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/13 15:35:50 by astaroth          #+#    #+#             */
+/*   Updated: 2022/10/13 19:25:44 by astaroth         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractal.h"
 
-static t_color get_color(int n, t_color color)
+static t_color	get_color(int n)
 {
-
-	double t;
+	t_color	color;
+	double	t;
 
 	t = (double)n / (double)180;
-	color.r = (int)(9*(1-t)*t*t*t*255);
-	color.g = (int)(15*(1-t)*(1-t)*t*t*255);
-	color.b =  (int)(8.5*(1-t)*(1-t)*(1-t)*t*255);
+	color.r = (int)(3 * (1 - t) * t * t * t * 255);
+	color.g = (int)(20 * (1 - t) * (1 - t) * t * t * 255);
+	color.b = (int)(9 * (1 - t) * (1 - t) * (1 - t) * t * 255);
 	return (color);
 }
 
-int plot_mandel(int loopx, int loopy, double re, double im, t_image *img)
+static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 {
-	int n;
-	double z;
-	double c;
-	double temp;
-	t_color color;
+	int		n;
+	double	z;
+	double	c;
+	double	temp;
+	double	re;
+	double	im;
 
 	z = 0;
 	c = 0;
 	n = 0;
-	while (n < 180)
+	re = ((float)x) / fractal->scale + fractal->x;
+	im = ((float)y) / fractal->scale + fractal->y;
+	while (n < 180 && pow(z, 2) + pow(c, 2) < 4)
 	{
 		temp = z;
-		z = (pow(z, 2) - pow(c, 2) + re);
-		c = (2 * temp * c) + im;
-		if (pow(z, 2) + pow(c,2) > 2)
-		{
-			color = get_color(n, color);
-			img_pix_put(img,
-			   loopx,
-			   loopy,
-			   encoder_argb(color.r, color.g, color.b));
-		}
+		z = (pow(z, 2) - pow(c, 2) + im);
+		c = (2 * temp * c) + re;
 		n++;
 	}
-	return (0);
+	return (get_color(n));
 }
 
-int start_mandel(t_fractal *fractal)
+int	start_mandel(t_data *data)
 {
-	double re;
-	double im;
+	int				i;
+	int				j;
+	long int		row;
+	t_color			color;
+	t_fractal		*fractal;
 
-	fractal->x = 0;
-	fractal->y = 0;
-	while (fractal->y < 600)
+	fractal = data->fractal;
+	i = 0;
+	while (i < fractal->img->height)
 	{
-		while (fractal->x < 800)
+		j = 0;
+		while (j < fractal->img->width)
 		{
-			re = set.re_min + ((fractal->x * (set.re_max - set.re_min )) / 800);
-			im = set.im_max - ((fractal->y * (set.im_max - set.im_min )) / 600);
-			plot_mandel(x,y,re,im,img);
-			x++;
+			row = i * fractal->img->width;
+			color = plot_mandel(fractal, i, j);
+			((unsigned int *)fractal->img->addr)[j + row] = encoder_argb(
+					color.r,
+					color.g,
+					color.b);
+			j++;
 		}
-		x= 0;
-		y++;
+		i++;
 	}
+	draw_fractal(data);
 	return (0);
 }
