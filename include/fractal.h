@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/13 19:22:46 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/15 11:39:35 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,14 @@ int		encoder_argb(int r, int g, int b);
 int		render_mandelbrot(t_image *img);
 void	img_pix_put(t_image *img, int x, int y, int color);
 int		start_mandel(t_data *data);
-int		handle_keyrelease(int keysym, void *data);
+int		mouse_handler(int keysym, int x, int y, t_data *data);
 int		handle_keypress(int keysym, t_data *data);
 int		render(t_data *data);
 int		handle_no_event(void *data);
-int		handle_mouse(t_data *data);
+int		mouse_handle(int keysym, int x, int y, t_data*data);
 int		parserr(char *str, int win, int hei);
 int		program_init(int width, int height, enum e_set set);
 void	draw_fractal(t_data *client);
+int		handle_keyrelease(int keysym, t_data *data);
 int		expose_handler(t_data *data);
 #endif

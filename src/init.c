@@ -6,12 +6,13 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:29:44 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/13 19:24:55 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/15 13:34:54 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractal.h"
 #include <mlx.h>
+#include <X11/X.h>
 
 static t_fractal	*init_fractal(enum e_set set, int width, int height)
 {
@@ -22,15 +23,16 @@ static t_fractal	*init_fractal(enum e_set set, int width, int height)
 	fractal->set = set;
 	fractal->img->width = width;
 	fractal->img->height = height;
-	fractal->scale = (width / 2. + height / 2.) / 4;
-	fractal->x = height / 2. / fractal->scale * -1;
-	fractal->y = width / 2. / fractal->scale * -1;
+	fractal->scale = (width / 2. + height / 2.) / 2;
+	fractal->x = height / 2. / fractal->scale * -1.;
+	fractal->y = width / -2. / fractal->scale * 1.;
 	return (fractal);
 }
 
 int	program_init(int width, int height, enum e_set set)
 {
 	t_data	*client;
+	short n = 20;
 
 	if (!width || !height)
 	{
@@ -49,7 +51,10 @@ int	program_init(int width, int height, enum e_set set)
 			&client->fractal->img->line_len,
 			&client->fractal->img->endian);
 	start_mandel(client);
+	mlx_hook(client->windows, KeyRelease, KeyReleaseMask, handle_keyrelease, client);
+	mlx_mouse_hook(client->windows, mouse_handle, client);
 	mlx_expose_hook(client->windows, expose_handler, client);
+	mlx_do_key_autorepeaton(client->display);
 	mlx_loop(client->display);
 	return (0);
 }

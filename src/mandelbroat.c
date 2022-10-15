@@ -1,16 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
+/* ************************************************************************** */ /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   mandelbroat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:35:50 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/13 19:25:44 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:01:35 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
+#include <math.h>
 
 static t_color	get_color(int n)
 {
@@ -18,27 +18,27 @@ static t_color	get_color(int n)
 	double	t;
 
 	t = (double)n / (double)180;
-	color.r = (int)(3 * (1 - t) * t * t * t * 255);
-	color.g = (int)(20 * (1 - t) * (1 - t) * t * t * 255);
-	color.b = (int)(9 * (1 - t) * (1 - t) * (1 - t) * t * 255);
+	color.r = (int)(9 * (1 - t) * pow(t,3)* 255);
+	color.g = (int)(15 * (1 - pow(t,2)) * pow(t,2) * 255);
+	color.b = (int)(8.5* (1 - pow(t,3)) * t * 255);
 	return (color);
 }
 
 static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 {
-	int		n;
-	double	z;
-	double	c;
-	double	temp;
-	double	re;
-	double	im;
+	int				n;
+	_Complex double	temp;
+	_Complex double	z;
+	double			c;
+	double			re;
+	double			im;
 
 	z = 0;
 	c = 0;
 	n = 0;
 	re = ((float)x) / fractal->scale + fractal->x;
 	im = ((float)y) / fractal->scale + fractal->y;
-	while (n < 180 && pow(z, 2) + pow(c, 2) < 4)
+	while (n < 180 && pow(z, 2) + pow(c, 2) < 2.)
 	{
 		temp = z;
 		z = (pow(z, 2) - pow(c, 2) + im);

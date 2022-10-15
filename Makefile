@@ -1,4 +1,16 @@
-TARGET := fractal
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/14 20:21:02 by astaroth          #+#    #+#              #
+#    Updated: 2022/10/15 11:39:48 by astaroth         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME := fractol
 VERBOSE := TRUE
 VPATH := src lib
 lib = libftprintf.a
@@ -22,10 +34,10 @@ ifdef DEBUG
     CFLAGS += -g3
 endif
 
-all:	$(TARGET)
+all:	$(NAME)
 
-$(TARGET): $(OBJS) $(BUILDDIR)
-	$(CC) $(OBJS) -I$(INCLUDE) libftprintf.a -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -lz -o $(TARGET)
+$(NAME): $(OBJS) $(BUILDDIR)
+	$(CC) $(OBJS) -I$(INCLUDE) libftprintf.a -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 $(BUILDDIR)%.o: %.c
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 	$(CC) $(CFLAGS) -I./include -c $< -o $@
@@ -34,6 +46,6 @@ clean:
 	rm -rf $(BUILDDIR)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all
