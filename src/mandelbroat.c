@@ -1,11 +1,12 @@
-/* ************************************************************************** */ /*                                                                            */
+/* ************************************************************************** */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   mandelbroat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:35:50 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/14 13:01:35 by astaroth         ###   ########.fr       */
+/*   Created: 2022/10/18 14:09:36 by astaroth          #+#    #+#             */
+/*   Updated: 2022/10/18 14:18:12 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +19,29 @@ static t_color	get_color(int n)
 	double	t;
 
 	t = (double)n / (double)180;
-	color.r = (int)(9 * (1 -t) * t * t* t * 255);
-	color.g = (int)(15 * (1- t) * (1 - t)* t * t * 255);
-	color.b = (int)(8.5 * (1 -t)* (1 -t)* (1 - t) * t * 255);
+	color.r = (int)(9 * (1 - t) * t * t * t * 255);
+	color.g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
+	color.b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
 	return (color);
 }
 
 static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 {
 	int				n;
-	double	temp;
-	double	z;
+	double			temp;
+	double			z;
 	double			c;
-	double			re;
-	double			im;
 
 	z = 0;
 	c = 0;
 	n = 0;
-	re = ((float)x) / fractal->scale + fractal->x;
-	im = ((float)y) / fractal->scale + fractal->y;
-	while (n < 180 && z * z+ c* c < 2.)
+	fractal->re = ((float)x) / fractal->scale + fractal->x;
+	fractal->im = ((float)y) / fractal->scale + fractal->y;
+	while (n < 180 && z * z + c * c < 2.)
 	{
 		temp = z;
-		z = (z * z - c*c + im);
-		c = (2 * temp * c) + re;
+		z = (z * z - c * c + fractal->im);
+		c = (2 * temp * c) + fractal->re;
 		n++;
 	}
 	return (get_color(n));

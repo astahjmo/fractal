@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:29:44 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/18 13:50:12 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:09:10 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	program_init(int width, int height, enum e_set set)
 			&client->fractal->img->line_len,
 			&client->fractal->img->endian);
 	start_mandel(client);
-	mlx_hook(client->windows, KeyRelease, KeyReleaseMask, handle_keyrelease, client);
+	mlx_hook(client->windows, KeyRelease, KeyReleaseMask,
+		handle_keyrelease, client);
 	mlx_mouse_hook(client->windows, mouse_handle, client);
 	mlx_expose_hook(client->windows, expose_handler, client);
 	mlx_loop(client->display);
