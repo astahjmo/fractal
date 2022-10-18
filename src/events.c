@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:55:14 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/18 23:41:49 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:07:17 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 #include "X11/keysym.h"
 #include <mlx.h>
 #include <stdlib.h>
+
+void	move_direction(t_data *data, int direction, double value)
+{
+	if (direction > 0)
+		data->fractal->x *= value;
+	if (direction < 0)
+		data->fractal->y *= value;
+	start_mandel(data);
+}
 
 void	zoom(t_data *data, double scale, int x, int y)
 {
@@ -55,6 +64,14 @@ int	handle_keyrelease(int keysym, t_data *data)
 		free(data);
 		exit(0);
 	}
+	if (keysym == 65361)
+		move_direction(data, -1, 1.2);
+	if (keysym == 65362)
+		move_direction(data, 1, 1.2);
+	if (keysym == 65363)
+		move_direction(data, -1, 0.8);
+	if (keysym == 65364)
+		move_direction(data, 1, 0.8);
 	return (0);
 }
 

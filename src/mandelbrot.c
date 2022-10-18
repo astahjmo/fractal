@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbroat.c                                      :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:09:36 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/18 14:18:12 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:01:58 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 	n = 0;
 	fractal->re = ((float)x) / fractal->scale + fractal->x;
 	fractal->im = ((float)y) / fractal->scale + fractal->y;
-	while (n < 180 && z * z + c * c < 2.)
+	while (n < 180 && z * z + c * c < 4.)
 	{
 		temp = z;
 		z = (z * z - c * c + fractal->im);
