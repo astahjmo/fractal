@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:55:14 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/18 14:23:25 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/18 23:41:49 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,13 @@ int	handle_keyrelease(int keysym, t_data *data)
 {
 	if (keysym == 65307)
 	{
+		mlx_destroy_window(data->display, data->windows);
 		mlx_loop_end(data->display);
 		mlx_destroy_image(data->display, data->fractal->img->mlx_image);
 		free(data->fractal->img);
 		free(data->fractal);
-		mlx_destroy_window(data->display, data->windows);
 		mlx_destroy_display(data->display);
+		free(data->display);
 		free(data);
 		exit(0);
 	}
