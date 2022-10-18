@@ -18,17 +18,17 @@ static t_color	get_color(int n)
 	double	t;
 
 	t = (double)n / (double)180;
-	color.r = (int)(9 * (1 - t) * pow(t,3)* 255);
-	color.g = (int)(15 * (1 - pow(t,2)) * pow(t,2) * 255);
-	color.b = (int)(8.5* (1 - pow(t,3)) * t * 255);
+	color.r = (int)(9 * (1 -t) * t * t* t * 255);
+	color.g = (int)(15 * (1- t) * (1 - t)* t * t * 255);
+	color.b = (int)(8.5 * (1 -t)* (1 -t)* (1 - t) * t * 255);
 	return (color);
 }
 
 static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 {
 	int				n;
-	_Complex double	temp;
-	_Complex double	z;
+	double	temp;
+	double	z;
 	double			c;
 	double			re;
 	double			im;
@@ -38,10 +38,10 @@ static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 	n = 0;
 	re = ((float)x) / fractal->scale + fractal->x;
 	im = ((float)y) / fractal->scale + fractal->y;
-	while (n < 180 && pow(z, 2) + pow(c, 2) < 2.)
+	while (n < 180 && z * z+ c* c < 2.)
 	{
 		temp = z;
-		z = (pow(z, 2) - pow(c, 2) + im);
+		z = (z * z - c*c + im);
 		c = (2 * temp * c) + re;
 		n++;
 	}
