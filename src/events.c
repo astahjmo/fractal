@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:55:14 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/18 18:07:17 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:49:23 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,17 @@
 
 void	move_direction(t_data *data, int direction, double value)
 {
-	if (direction > 0)
-		data->fractal->x *= value;
-	if (direction < 0)
-		data->fractal->y *= value;
+	t_fractal *fractal;
+
+	fractal = data->fractal;
+	if (direction == 1)
+		fractal->y -= (value / fractal->scale * fractal->img->height / 4);
+	if (direction == 2)
+		fractal->x -= (value / fractal->scale * fractal->img->width / 4);
+	if (direction == 3)
+		fractal->y += (value / fractal->scale * fractal->img->height / 4);
+	if (direction == 4)
+		fractal->x += (value / fractal->scale * fractal->img->width / 4);
 	start_mandel(data);
 }
 
@@ -65,13 +72,13 @@ int	handle_keyrelease(int keysym, t_data *data)
 		exit(0);
 	}
 	if (keysym == 65361)
-		move_direction(data, -1, 1.2);
-	if (keysym == 65362)
 		move_direction(data, 1, 1.2);
+	if (keysym == 65362)
+		move_direction(data, 2, 1.2);
 	if (keysym == 65363)
-		move_direction(data, -1, 0.8);
+		move_direction(data, 3,  1.2);
 	if (keysym == 65364)
-		move_direction(data, 1, 0.8);
+		move_direction(data, 4, 1.2);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/15 11:39:35 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:50:46 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,5 @@ int		program_init(int width, int height, enum e_set set);
 void	draw_fractal(t_data *client);
 int		handle_keyrelease(int keysym, t_data *data);
 int		expose_handler(t_data *data);
+int		start_julia(t_data *data);
 #endif
