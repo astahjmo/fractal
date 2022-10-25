@@ -1,5 +1,0 @@
-CompileFlags:                    
-  Add: [*.c, -Werror, -Wextra, -Wall, -I./include/]
-  Compiler: gcc
-Index:
-  Background: Build
