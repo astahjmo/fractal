@@ -6,7 +6,7 @@
 #    By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 22:29:20 by johmatos          #+#    #+#              #
-#    Updated: 2022/10/25 06:50:47 by harndt           ###   ########.fr        #
+#    Updated: 2022/10/25 19:26:58 by johmatos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SOURCES	+= utils.c events.c init.c main.c parse.c mandelbrot.c julia.c exit.c
 BUILDDIR := ./objs/
 INCLUDE := /include
 CC := cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -o3
 OBJS := $(addprefix $(BUILDDIR), $(SOURCES:.c=.o))
 
 ifdef DEBUG

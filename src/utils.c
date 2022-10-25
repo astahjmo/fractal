@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:14:56 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 11:14:58 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/25 19:49:35 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_color	get_color(int n)
 	t_color	color;
 	double	t;
 
-	t = (double)n / (double)180;
+	t = (double)n / (double) MAX_INTER;
 	color.r = (int)(9 * (1 - t) * t * t * t * 255);
 	color.g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
 	color.b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);

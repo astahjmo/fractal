@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:14:14 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 11:14:36 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/25 19:49:22 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 	n = 0;
 	fractal->re = ((float)x) / fractal->scale + fractal->x;
 	fractal->im = ((float)y) / fractal->scale + fractal->y;
-	while (n < 180 && z * z + c * c < 4.)
+	while (n < MAX_INTER && z * z + c * c < 4.)
 	{
 		temp = (2 * z * c) + fractal->im;
 		z = (z * z - c * c) + fractal->re;

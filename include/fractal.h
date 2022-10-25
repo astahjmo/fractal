@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:15:26 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 11:15:28 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/25 19:49:11 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 // Define the screen resolution
 # define WIDTH 800
 # define HEIGHT 600
+# define MAX_INTER 80
 
 // Define some normal error
 # define ERR_ALLOC "Something went wrong with memory allocation"
