@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 14:09:36 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/22 14:12:45 by astaroth         ###   ########.fr       */
+/*   Created: 2022/10/24 22:25:40 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/24 22:25:44 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include <math.h>
 
 static t_color	get_color(int n)
 {

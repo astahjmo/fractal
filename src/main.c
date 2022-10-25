@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 19:39:12 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/24 21:05:57 by astaroth         ###   ########.fr       */
+/*   Created: 2022/10/24 22:25:36 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/24 22:25:36 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 int	main(int argc, char *argv[])
 {
 	if (argc == 2)
-		parserr(argv[1], NULL, NULL);
+		parser(argv[1], NULL, NULL);
 	else if (argc == 4)
-		parserr(argv[1], argv[2], argv[3]);
+		parser(argv[1], argv[2], argv[3]);
 	else
-		ft_printf("Wrong usage.\nExamples:\n%s\n%s\n", EX_JULIA, EX_MANDEL);
+	{
+		ft_putstr_fd("Wrong usage.\nExamples:\n", 1);
+		ft_putstr_fd(EX_JULIA, 1);
+		ft_putstr_fd(EX_MANDEL, 1);
+	}
 }

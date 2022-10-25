@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 18:14:32 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/24 11:15:10 by astaroth         ###   ########.fr       */
+/*   Created: 2022/10/24 22:25:27 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/24 22:25:31 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include <math.h>
 
 static t_color	get_color(int n)
 {

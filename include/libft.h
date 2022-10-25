@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 00:23:34 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/24 10:58:55 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/24 22:15:57 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 //utils
 
+double	ft_atof(const char *nptr);
 int		ft_atoi(const char *str);
 int		ft_isalnum(int n);
 int		ft_isalpha(int n);
@@ -34,7 +35,6 @@ int		ft_isascii(int n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-double	ft_atof(const char *str);
 // STR
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);

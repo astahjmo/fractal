@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:55:14 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/24 21:13:12 by astaroth         ###   ########.fr       */
+/*   Created: 2022/10/24 22:25:08 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/24 22:25:12 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include "X11/keysym.h"
-#include <mlx.h>
-#include <stdlib.h>
 
 void	move_direction(t_data *data, int direction, double value)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 19:29:44 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/24 21:16:08 by astaroth         ###   ########.fr       */
+/*   Created: 2022/10/24 22:25:22 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/24 22:25:24 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_fractal	*init_fractal(enum e_set set, double re, double im)
 	fractal = (t_fractal *)malloc(sizeof(t_fractal));
 	fractal->img = (t_image *)malloc(sizeof(t_image));
 	if (fractal == NULL || fractal->img == NULL)
-		ft_printf(ERR_ALLOC);
+		ft_putstr_fd(EX_JULIA, 1);
 	fractal->set = set;
 	if (set == JULIA)
 	{
@@ -42,7 +42,7 @@ int	program_init(enum e_set set, double re, double im)
 
 	client = malloc(sizeof(t_data));
 	if (client == NULL)
-		ft_printf(ERR_ALLOC);
+		ft_putstr_fd(EX_JULIA, 1);
 	client->display = mlx_init();
 	client->windows = mlx_new_window(client->display, WIDTH, HEIGHT, "Fractal");
 	client->fractal = init_fractal(set, re, im);

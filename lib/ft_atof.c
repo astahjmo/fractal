@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 10:56:36 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/24 21:14:30 by astaroth         ###   ########.fr       */
+/*   Created: 2022/10/24 22:26:01 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/24 22:26:33 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 double	ft_atof(const char *nptr)
 {
-	int			is_neg;
-	double		result;
-	double		power;
+	int		is_neg;
+	double	result;
+	double	power;
 
 	while (*nptr == ' ' || *nptr == '\e' || *nptr == '\t')
 		nptr++;
