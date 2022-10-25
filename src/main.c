@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:36 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/24 22:25:36 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 00:56:58 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd(EX_JULIA, 1);
 		ft_putstr_fd(EX_MANDEL, 1);
 	}
+	return (0);
 }
