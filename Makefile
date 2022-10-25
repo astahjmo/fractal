@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+         #
+#    By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/14 20:21:02 by astaroth          #+#    #+#              #
-#    Updated: 2022/10/24 22:13:32 by astaroth         ###   ########.fr        #
+#    Created: 2022/10/24 22:29:20 by johmatos          #+#    #+#              #
+#    Updated: 2022/10/24 22:29:21 by johmatos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
