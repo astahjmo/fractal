@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:14:32 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/18 18:41:24 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/24 11:15:10 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,15 @@ static t_color	plot_julia(t_fractal *fractal, int x, int y)
 	double			z;
 	double			c;
 
-	z = 0;
-	c = 0;
+	z = ((double) x / fractal->scale + fractal->x);
+	c = ((double) y / fractal->scale + fractal->y);
 	n = 0;
-	fractal->re = ((float)x) / fractal->scale + fractal->x;
-	fractal->im = ((float)y) / fractal->scale + fractal->y;
+	temp = 0;
 	while (n < 180 && z * z + c * c < 4.)
 	{
-		temp = z;
-		z = (z * z - c * c + fractal->im);
-		c = (2 * temp * c) + fractal->re;
+		temp = (2 * z * c) + fractal->im * (-1);
+		z = (z * z - c * c) + fractal->re;
+		c = temp;
 		n++;
 	}
 	return (get_color(n));
@@ -49,28 +48,28 @@ static t_color	plot_julia(t_fractal *fractal, int x, int y)
 
 int	start_julia(t_data *data)
 {
-	int				i;
-	int				j;
+	int				x;
+	int				y;
 	long int		row;
 	t_color			color;
 	t_fractal		*fractal;
 
 	fractal = data->fractal;
-	i = 0;
-	while (i < fractal->img->height)
+	y = 0;
+	while (y < fractal->img->height)
 	{
-		j = 0;
-		while (j < fractal->img->width)
+		x = 0;
+		while (x < fractal->img->width)
 		{
-			row = i * fractal->img->width;
-			color = plot_julia(fractal, i, j);
-			((unsigned int *)fractal->img->addr)[j + row] = encoder_argb(
+			row = y * fractal->img->width;
+			color = plot_julia(fractal, x, y);
+			((unsigned int *)fractal->img->addr)[x + row] = encoder_argb(
 					color.r,
 					color.g,
 					color.b);
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 	draw_fractal(data);
 	return (0);

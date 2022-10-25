@@ -6,7 +6,7 @@
 #    By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 20:21:02 by astaroth          #+#    #+#              #
-#    Updated: 2022/10/19 15:49:48 by astaroth         ###   ########.fr        #
+#    Updated: 2022/10/24 11:03:30 by astaroth         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SOURCES	:= ft_atoi.c ft_calloc.c ft_bzero.c ft_isalnum.c \
 					ft_strrchr.c ft_tolower.c ft_toupper.c ft_substr.c \
 					ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 					ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
-					ft_putendl_fd.c ft_putnbr_fd.c
-SOURCES += utils.c events.c init.c main.c parse.c mandelbrot.c
+					ft_putendl_fd.c ft_putnbr_fd.c ft_atof.c
+SOURCES += utils.c events.c init.c main.c parse.c mandelbrot.c julia.c exit.c
 BUILDDIR := ./objs/
 INCLUDE := /include
 CC := cc
@@ -37,7 +37,7 @@ endif
 all:	$(NAME)
 
 $(NAME): $(OBJS) $(BUILDDIR)
-	$(CC) $(OBJS) -I$(INCLUDE) -Lminilibx-linux -lmlx -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) -I$(INCLUDE) $(lib) -Lminilibx-linux -lmlx -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 $(BUILDDIR)%.o: %.c
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 	$(CC) $(CFLAGS) -I./include -c $< -o $@

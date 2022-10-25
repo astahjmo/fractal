@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 00:23:34 by johmatos          #+#    #+#             */
-/*   Updated: 2022/05/28 13:05:21 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:58:55 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		ft_isascii(int n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+double	ft_atof(const char *str);
 // STR
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);

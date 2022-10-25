@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/19 15:50:46 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/24 21:05:26 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@
 # include <math.h>
 # include <stdio.h>
 # include "./libft.h"
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 600
-# define MLX_ERROR 1
+// Define the screen resolution
+# define WIDTH 800
+# define HEIGHT 600
+
+// Define some normal error
+# define ERR_ALLOC "Something went wrong with memory allocation"
+# define ERR_PARMS "You passed invalid values as parameter!"
+# define EX_JULIA "./fractol julia -0.70176 -0.3842"
+# define EX_MANDEL "./fractol mandelbrot"
 
 enum e_set{
 	MANDELBROT,
@@ -93,10 +99,12 @@ int		handle_keypress(int keysym, t_data *data);
 int		render(t_data *data);
 int		handle_no_event(void *data);
 int		mouse_handle(int keysym, int x, int y, t_data*data);
-int		parserr(char *str, int win, int hei);
-int		program_init(int width, int height, enum e_set set);
+int		parserr(char *str, char *re, char *im);
 void	draw_fractal(t_data *client);
 int		handle_keyrelease(int keysym, t_data *data);
 int		expose_handler(t_data *data);
+int		program_init(enum e_set set, double re, double im);
 int		start_julia(t_data *data);
+void	exit_program(t_data *data);
+void	select_set(t_data *client);
 #endif

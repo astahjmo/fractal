@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:38:46 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/13 19:19:22 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/24 09:45:51 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,12 @@ void	draw_fractal(t_data *client)
 {
 	mlx_put_image_to_window(client->display, client->windows,
 		client->fractal->img->mlx_image, 0, 0);
+}
+
+void	select_set(t_data *client)
+{
+	if (client->fractal->set == JULIA)
+		start_julia(client);
+	if (client->fractal->set == MANDELBROT)
+		start_mandel(client);
 }

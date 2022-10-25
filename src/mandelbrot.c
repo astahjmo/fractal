@@ -6,7 +6,7 @@
 /*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:09:36 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/19 12:34:25 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/22 14:12:45 by astaroth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 	fractal->im = ((float)y) / fractal->scale + fractal->y;
 	while (n < 180 && z * z + c * c < 4.)
 	{
-		temp = z;
-		z = (z * z - c * c + fractal->im);
-		c = (2 * temp * c) + fractal->re;
+		temp = (2 * z * c) + fractal->im;
+		z = (z * z - c * c) + fractal->re;
+		c = temp;
 		n++;
 	}
 	return (get_color(n));
@@ -63,7 +63,7 @@ int	start_mandel(t_data *data)
 		while (j < fractal->img->width)
 		{
 			row = i * fractal->img->width;
-			color = plot_mandel(fractal, i, j);
+			color = plot_mandel(fractal, j, i);
 			((unsigned int *)fractal->img->addr)[j + row] = encoder_argb(
 					color.r,
 					color.g,
