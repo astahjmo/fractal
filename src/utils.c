@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 22:25:53 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 07:04:13 by harndt           ###   ########.fr       */
+/*   Created: 2022/10/25 11:14:56 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/25 11:14:58 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractal.h"
-#include <mlx.h>
+#include "../include/fractal.h"
 
 int	encoder_argb(int r, int g, int b)
 {

@@ -6,11 +6,11 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:08 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/24 22:25:12 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:13:29 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractal.h"
+#include "../include/fractal.h"
 
 void	move_direction(t_data *data, int direction, double value)
 {

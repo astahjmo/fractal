@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 22:25:22 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 06:58:27 by harndt           ###   ########.fr       */
+/*   Created: 2022/10/25 11:13:57 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/25 11:13:58 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractal.h"
-#include <mlx.h>
-#include <X11/X.h>
 
 static t_fractal	*init_fractal(enum e_set set, double re, double im)
 {

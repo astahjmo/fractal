@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 22:25:27 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 07:04:05 by harndt           ###   ########.fr       */
+/*   Created: 2022/10/25 11:13:18 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/25 11:13:20 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractal.h"
+#include "../include/fractal.h"
 
 static t_color	plot_julia(t_fractal *fractal, int x, int y)
 {

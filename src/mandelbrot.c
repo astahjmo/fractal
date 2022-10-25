@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 22:25:40 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 07:04:21 by harndt           ###   ########.fr       */
+/*   Created: 2022/10/25 11:14:14 by johmatos          #+#    #+#             */
+/*   Updated: 2022/10/25 11:14:36 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractal.h"
+#include "../include/fractal.h"
 
 static t_color	plot_mandel(t_fractal *fractal, int x, int y)
 {
