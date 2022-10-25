@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:22 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/24 22:25:24 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/25 06:58:27 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	program_init(enum e_set set, double re, double im)
 		handle_keyrelease, client);
 	mlx_mouse_hook(client->windows, mouse_handle, client);
 	mlx_expose_hook(client->windows, expose_handler, client);
+	mlx_hook(client->windows, DestroyNotify, NoEventMask,
+		exit_program, client);
 	mlx_loop(client->display);
 	return (0);
 }

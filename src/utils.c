@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:53 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/24 22:25:55 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/25 07:04:13 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,16 @@ void	select_set(t_data *client)
 		start_julia(client);
 	if (client->fractal->set == MANDELBROT)
 		start_mandel(client);
+}
+
+t_color	get_color(int n)
+{
+	t_color	color;
+	double	t;
+
+	t = (double)n / (double)180;
+	color.r = (int)(9 * (1 - t) * t * t * t * 255);
+	color.g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
+	color.b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
+	return (color);
 }

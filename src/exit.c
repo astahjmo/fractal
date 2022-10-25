@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:15 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/24 22:25:18 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/25 06:59:14 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractal.h"
 
-void	exit_program(t_data *data)
+int	exit_program(t_data *data)
 {
 	mlx_destroy_window(data->display, data->windows);
 	mlx_loop_end(data->display);

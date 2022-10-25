@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astaroth </var/spool/mail/astaroth>        +#+  +:+       +#+        */
+/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/24 22:18:30 by astaroth         ###   ########.fr       */
+/*   Updated: 2022/10/25 07:03:33 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int		handle_keyrelease(int keysym, t_data *data);
 int		expose_handler(t_data *data);
 int		program_init(enum e_set set, double re, double im);
 int		start_julia(t_data *data);
-void	exit_program(t_data *data);
+int		exit_program(t_data *data);
 void	select_set(t_data *client);
+t_color	get_color(int n);
 #endif
