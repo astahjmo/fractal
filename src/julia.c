@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:27 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/24 22:25:31 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/25 07:04:05 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-
-static t_color	get_color(int n)
-{
-	t_color	color;
-	double	t;
-
-	t = (double)n / (double)180;
-	color.r = (int)(9 * (1 - t) * t * t * t * 255);
-	color.g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
-	color.b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
-	return (color);
-}
 
 static t_color	plot_julia(t_fractal *fractal, int x, int y)
 {

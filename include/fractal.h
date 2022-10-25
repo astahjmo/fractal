@@ -6,7 +6,7 @@
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:37:43 by astaroth          #+#    #+#             */
-/*   Updated: 2022/10/25 06:59:28 by harndt           ###   ########.fr       */
+/*   Updated: 2022/10/25 07:03:33 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,5 @@ int		program_init(enum e_set set, double re, double im);
 int		start_julia(t_data *data);
 int		exit_program(t_data *data);
 void	select_set(t_data *client);
+t_color	get_color(int n);
 #endif
