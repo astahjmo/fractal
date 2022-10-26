@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:48 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/26 13:56:12 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:00:28 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	check_parms(char *re, char*im)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(re);
 	if ((len == 1) && (ft_strchr("+-.", *re)))
@@ -29,7 +29,6 @@ static int	check_parms(char *re, char*im)
 			return (1);
 		re++;
 	}
-
 	while (*im)
 	{
 		if (!ft_isdigit(*im) && !ft_strchr("+-.", *im))
