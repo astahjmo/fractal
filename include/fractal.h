@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:15:26 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/26 16:52:21 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 18:52:59 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@
 # include <math.h>
 # include "libft.h"
 
-// Define the screen resolution
-# define WIDTH 1280
-# define HEIGHT 720
+# define WIDTH 900
+# define HEIGHT 900
 # define MAX_INTER 50
-
-// Define some normal error
 # define ERR_ALLOC "Something went wrong with memory allocation"
 # define ERR_PARMS "You passed invalid values as parameter!"
 # define EX_JULIA "./fractol julia -0.70176 -0.3842\n"
