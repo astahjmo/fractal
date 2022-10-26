@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:15:26 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 19:57:14 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 11:39:45 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 # include "libft.h"
 
 // Define the screen resolution
-# define WIDTH 800
-# define HEIGHT 600
-# define MAX_INTER 80
+# define WIDTH 1280
+# define HEIGHT 720
+# define MAX_INTER 50
 
 // Define some normal error
 # define ERR_ALLOC "Something went wrong with memory allocation"
