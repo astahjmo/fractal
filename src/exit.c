@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:13:45 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/25 11:13:46 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:52:28 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,13 @@ int	exit_program(t_data *data)
 	mlx_destroy_display(data->display);
 	free(data->display);
 	free(data);
+	exit(0);
+}
+
+void	print_wrong_usage(void)
+{
+	ft_putstr_fd("Wrong usage.\nExamples:\n", 1);
+	ft_putstr_fd(EX_JULIA, 1);
+	ft_putstr_fd(EX_MANDEL, 1);
 	exit(0);
 }

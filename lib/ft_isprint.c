@@ -6,13 +6,15 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 02:15:01 by johmatos          #+#    #+#             */
-/*   Updated: 2022/05/25 20:05:52 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:31:46 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_isprint(int c)
 {
+	printf("%d\naaaaaa^", c);
 	return ((c >= 32) && (c <= 126));
 }

@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:15:26 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/26 11:39:45 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:52:21 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ int		program_init(enum e_set set, double re, double im);
 int		start_julia(t_data *data);
 int		exit_program(t_data *data);
 void	select_set(t_data *client);
+void	print_wrong_usage(void);
 t_color	get_color(int n);
 #endif
