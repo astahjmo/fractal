@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+         #
+#    By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/24 22:29:20 by johmatos          #+#    #+#              #
-#    Updated: 2022/10/25 19:26:58 by johmatos         ###   ########.fr        #
+#    Created: 2022/10/26 15:21:29 by johmatos          #+#    #+#              #
+#    Updated: 2022/10/26 15:21:36 by johmatos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
