@@ -6,12 +6,11 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:13:57 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/26 13:46:12 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:01:33 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractal.h"
-#include <stdio.h>
 
 static t_fractal	*init_fractal(enum e_set set, double re, double im)
 {
@@ -32,7 +31,6 @@ static t_fractal	*init_fractal(enum e_set set, double re, double im)
 	fractal->scale = (WIDTH + HEIGHT) / 6.0;
 	fractal->x = WIDTH / 2.0 / fractal->scale * -1;
 	fractal->y = HEIGHT / 2.0 / fractal->scale * -1;
-	printf("%f\n%f\n", fractal->re, fractal->im);
 	return (fractal);
 }
 
