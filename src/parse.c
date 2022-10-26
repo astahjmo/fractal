@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:48 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/26 17:17:37 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 17:50:53 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	check_args(char *re, char *im)
 		return (1);
 	while (*re)
 	{
-		if (!ft_isdigit(*re) && ft_strchr("+-.", *re) != 0)
+		if (!ft_isdigit(*re) && !ft_strchr("+-.", *re))
 			return (1);
 		re++;
 	}
@@ -50,7 +50,7 @@ int	parser(char *str, char *re, char *im)
 	{
 		cre = ft_atof(re);
 		cim = ft_atof(im);
-		if (cre > 2.0 || cre < -2.0 || cim > 2.0 || cim < -2.0)
+		if ((cre > 2.0 || cre < -2.0) || (cim > 2.0 || cim < -2.0))
 			print_wrong_usage();
 		program_init(JULIA, ft_atof(re), ft_atof(im));
 	}
