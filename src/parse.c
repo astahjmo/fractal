@@ -6,22 +6,21 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:48 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/26 14:00:28 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:19:37 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractal.h"
-#include <stdio.h>
 
 static int	check_parms(char *re, char*im)
 {
 	int	len;
 
 	len = ft_strlen(re);
-	if ((len == 1) && (ft_strchr("+-.", *re)))
+	if ((*re == '\0') || (len == 1 && ft_strchr("+-.", *re)))
 		return (1);
 	len = ft_strlen(im);
-	if ((len == 1) && (ft_strchr("+-.", *im)))
+	if ((*im == '\0') || (len == 1 && ft_strchr("+-.", *im)))
 		return (1);
 	while (*re)
 	{
