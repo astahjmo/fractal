@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:48 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/27 18:53:51 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:23:20 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static int	string_loop(char *str)
 {
-	if (*str == '\0')
-		return (1);
 	while (*str && ft_isdigit(*str))
 		str++;
 	if (*str == '.')
@@ -29,16 +27,20 @@ static int	string_loop(char *str)
 
 static int	check_start(char c)
 {
-	return (c == '-' || c == '+' || ft_isdigit(c));
+	return (c == '-' || c == '+');
 }
 
 static int	check_args(char *re, char *im)
 {
 	if (!re || !im)
 		return (1);
-	if (!check_start(*re) || !check_start(*im))
+	if (check_start(*re))
+		re++;
+	if (check_start(*im))
+		im++;
+	if(!*re || !*im)
 		return (1);
-	if (string_loop(++re) == 1 || string_loop(++im) == 1)
+	if (string_loop(re) == 1 || string_loop(im) == 1)
 		return (1);
 	return (0);
 }
