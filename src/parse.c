@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:48 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/27 17:20:54 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:53:51 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int	string_loop(char *str)
 {
+	if (*str == '\0')
+		return (1);
 	while (*str && ft_isdigit(*str))
 		str++;
 	if (*str == '.')
