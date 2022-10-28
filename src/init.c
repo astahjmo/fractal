@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:13:57 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/26 14:01:33 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/28 04:12:25 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_fractal	*init_fractal(enum e_set set, double re, double im)
 	fractal = (t_fractal *)malloc(sizeof(t_fractal));
 	fractal->img = (t_image *)malloc(sizeof(t_image));
 	if (fractal == NULL || fractal->img == NULL)
-		ft_putstr_fd(EX_JULIA, 1);
+		return (fractal);
 	fractal->set = set;
 	if (set == JULIA)
 	{
@@ -34,14 +34,16 @@ static t_fractal	*init_fractal(enum e_set set, double re, double im)
 	return (fractal);
 }
 
-int	program_init(enum e_set set, double re, double im)
+static t_data	*memory_init(enum e_set set, double re, double im)
 {
 	t_data	*client;
 
 	client = malloc(sizeof(t_data));
 	if (client == NULL)
-		ft_putstr_fd(EX_JULIA, 1);
+		exit_with_error(ERR_ALLOC, 1, client);
 	client->display = mlx_init();
+	if (client->display == NULL)
+		exit_with_error(ERR_X11, 2, client);
 	client->windows = mlx_new_window(client->display, WIDTH, HEIGHT, "Fractal");
 	client->fractal = init_fractal(set, re, im);
 	client->fractal->img->mlx_image = mlx_new_image(client->display,
@@ -51,6 +53,14 @@ int	program_init(enum e_set set, double re, double im)
 			&client->fractal->img->bpp,
 			&client->fractal->img->line_len,
 			&client->fractal->img->endian);
+	return (client);
+}
+
+int	program_init(enum e_set set, double re, double im)
+{
+	t_data	*client;
+
+	client = memory_init(set, re, im);
 	select_set(client);
 	mlx_hook(client->windows, KeyRelease, KeyReleaseMask,
 		handle_keyrelease, client);

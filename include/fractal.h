@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:15:26 by johmatos          #+#    #+#             */
-/*   Updated: 2022/10/26 18:52:59 by johmatos         ###   ########.fr       */
+/*   Updated: 2022/10/28 03:50:26 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@
 # define WIDTH 900
 # define HEIGHT 900
 # define MAX_INTER 50
-# define ERR_ALLOC "Something went wrong with memory allocation"
-# define ERR_PARMS "You passed invalid values as parameter!"
+# define ERR_X11 "Something went wrong with MLX/X11\n"
+# define ERR_ALLOC "Something went wrong with memory allocation\n"
+# define ERR_PARMS "You passed invalid values as parameter!\n"
 # define EX_JULIA "./fractol julia -0.70176 -0.3842\n"
 # define EX_MANDEL "./fractol mandelbrot\n"
 
@@ -89,5 +90,6 @@ int		start_julia(t_data *data);
 int		exit_program(t_data *data);
 void	select_set(t_data *client);
 void	print_wrong_usage(void);
+void	exit_with_error(char *err, int level, t_data *data);
 t_color	get_color(int n);
 #endif
